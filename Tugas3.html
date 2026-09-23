@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas Membuat Kalkulator Sederhana</title>
+    <style>
+       
+        .kotak-tugas {
+            width: 320px;
+            border: 1px solid #000000;
+            padding: 15px;
+            margin: 20px auto;
+        }
+        .tabel-form {
+            width: 100%;
+        }
+        .tabel-form td {
+            padding: 5px 0;
+        }
+        .input-lebar {
+            width: 95%;
+        }
+        h1 {
+           font-family: Arial, sans-serif;
+           text-align: center;
+            
+        }
+        
+      
+    </style>
+</head>
+<body>
+  <h1>TUGAS 3 PEMROGRAMAN WEB</h1>
+    <div class="kotak-tugas">
+   
+    <table class="tabel-form">
+        <tr>
+            <td>Input Bilangan 1</td>
+            <td><input type="number" id="bil1" class="input-lebar"></td>
+        </tr>
+        <tr>
+            <td>Input Bilangan 2</td>
+            <td><input type="number" id="bil2" class="input-lebar"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="hitung('+')">+</button>
+                <button onclick="hitung('-')">-</button>
+                <button onclick="hitung('*')">x</button>
+                <button onclick="hitung('/')">/</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Output</td>
+            <td><input type="text" id="output" class="input-lebar" readonly></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function hitung(operator) {
+        let val1 = parseFloat(document.getElementById('bil1').value);
+        let val2 = parseFloat(document.getElementById('bil2').value);
+        let hasil = 0;
+
+        if (isNaN(val1) || isNaN(val2)) {
+            alert("Silakan isi kedua input bilangan terlebih dahulu!");
+            return;
+        }
+
+        if (operator === '+') {
+            hasil = val1 + val2;
+        } else if (operator === '-') {
+            hasil = val1 - val2;
+        } else if (operator === '*') {
+            hasil = val1 * val2;
+        } else if (operator === '/') {
+            if (val2 === 0) {
+                alert("Bilangan kedua tidak boleh 0 untuk pembagian!");
+                return;
+            }
+            hasil = val1 / val2;
+        }
+
+        document.getElementById('output').value = hasil;
+    }
+        
+</script>
+ 
+
+</body>
+</html>
+

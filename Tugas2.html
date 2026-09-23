@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas Individu - Form</title>
+    
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    <h1 class="judul-tengah">TUGAS INDIVIDU</h1>
+
+    <div class="kotak-form">
+        <form action="#" method="POST">
+            
+            <p>
+                <label>Nama Lengkap:</label><br>
+                <input type="text" name="nama" class="input-teks">
+            </p>
+            
+            <p>
+                <label>Kata Sandi:</label><br>
+                <input type="password" name="sandi" class="input-teks">
+            </p>
+            
+            <p>
+                <label>Jenis Kelamin:</label><br>
+                <input type="radio" id="pria" name="gender" value="Pria"> Pria
+                <input type="radio" id="wanita" name="gender" value="Wanita"> Wanita
+            </p>
+            
+            <p>
+                <label>Pilihan Jurusan:</label><br>
+                <select name="jurusan" class="input-teks">
+                    <option value="">-- Pilih --</option>
+                    <option value="TI">Teknologi Informasi</option>
+                    <option value="ILKOM">Ilmu Komputer</option>
+                </select>
+            </p>
+            
+            <p>
+                <label>Alamat Rumah:</label><br>
+                <textarea name="alamat" rows="4" class="input-teks"></textarea>
+            </p>
+            
+            <p>
+                <input type="checkbox" name="setuju"> Saya menyetujui aturan.
+            </p>
+            
+            <p>
+                <input type="submit" value="Kirim Data" class="tombol-submit">
+            </p>
+            
+        </form>
+    </div>
+
+</body>
+</html>

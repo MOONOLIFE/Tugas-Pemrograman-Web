@@ -1,0 +1,46 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+
+.judul-tengah {
+    text-align: center;
+}
+
+
+.kotak-form {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    padding: 20px;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+
+.input-teks {
+    width: 95%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+
+.tombol-submit {
+    width: 100%;
+    padding: 8px;
+    background-color: #e1e1e1;
+    border: 1px solid #7a7a7a;
+    cursor: pointer;
+}
+
+
+.tombol-submit:hover {
+    background-color: #d4d4d4;
+}
