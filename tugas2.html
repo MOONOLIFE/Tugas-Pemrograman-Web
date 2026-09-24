@@ -2,67 +2,169 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Tugas Individu - Form</title>
-    
-    <link rel="stylesheet" href="form.css">
+    <title>Tugas Membuat Kalkulator Sederhana</title>
     <style>
-     .balik {
-           font-family: Arial, sans-serif;
-           text-align: center;
-            
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #efebe9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-    </style>    
+
+        h1 {
+            text-align: center;
+            color: #4e342e;
+            margin-bottom: 20px;
+        }
+       
+        .kotak-tugas {
+            width: 360px;
+            border: 1px solid #a1887f;
+            background-color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .tabel-form {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabel-form td {
+            padding: 8px 0;
+            color: #4e342e;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .tabel-form td:first-child {
+            width: 40%;
+        }
+
+        .tabel-form td:last-child {
+            width: 60%;
+        }
+
+        .input-lebar {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #bcaaa4;
+            box-sizing: border-box;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 5px;
+        }
+
+        button {
+            flex: 1;
+            background-color: #8d6e63;
+            color: white;
+            border: 1px solid #5d4037;
+            padding: 6px 0;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #70554c;
+        }
+
+        .container-balik {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .balik {
+            margin: 8px 0;
+        }
+
+        .balik a {
+            color: #6d4c41;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .balik a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <h1 class="judul-tengah">TUGAS INDIVIDU</h1>
-
-    <div class="kotak-form">
-       <form action="sukses.html" method="GET">
-            
-            <p>
-                <label>Nama Lengkap:</label><br>
-                <input type="text" name="nama" class="input-teks">
-            </p>
-            
-            <p>
-                <label>Kata Sandi:</label><br>
-                <input type="password" name="sandi" class="input-teks">
-            </p>
-            
-            <p>
-                <label>Jenis Kelamin:</label><br>
-                <input type="radio" id="pria" name="gender" value="Pria"> Pria
-                <input type="radio" id="wanita" name="gender" value="Wanita"> Wanita
-            </p>
-            
-            <p>
-                <label>Pilihan Jurusan:</label><br>
-                <select name="jurusan" class="input-teks">
-                    <option value="">-- Pilih --</option>
-                    <option value="TI">Teknologi Informasi</option>
-                    <option value="ILKOM">Ilmu Komputer</option>
-                </select>
-            </p>
-            
-            <p>
-                <label>Alamat Rumah:</label><br>
-                <textarea name="alamat" rows="4" class="input-teks"></textarea>
-            </p>
-            
-            <p>
-                <input type="checkbox" name="setuju"> Saya menyetujui aturan.
-            </p>
-            
-            <p>
-                <input type="submit" value="Kirim Data" class="tombol-submit">
-            </p>
-            
-        </form>
+    <h1>TUGAS 3 PEMROGRAMAN WEB</h1>
+    
+    <div class="kotak-tugas">
+        <table class="tabel-form">
+            <tr>
+                <td>Input Bilangan 1</td>
+                <td><input type="number" id="bil1" class="input-lebar"></td>
+            </tr>
+            <tr>
+                <td>Input Bilangan 2</td>
+                <td><input type="number" id="bil2" class="input-lebar"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="btn-container">
+                        <button onclick="hitung('+')">+</button>
+                        <button onclick="hitung('-')">-</button>
+                        <button onclick="hitung('*')">x</button>
+                        <button onclick="hitung('/')">/</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Output</td>
+                <td><input type="text" id="output" class="input-lebar" readonly></td>
+            </tr>
+        </table>
     </div>
-    <p class="balik"><a href="index.html">Kembali ke  Halaman Utama</data></a></p>
-     <p class="balik">
-        <a href="tugas3.html">Tugas 3: Form Input Data</data></a>
-    </p>
+
+    <div class="container-balik">
+        <p class="balik"><a href="index.html">Kembali ke Halaman Utama</a></p>
+        <p class="balik"><a href="tugas1.html">Tugas 1: Membuat Tabel</a></p>
+        <p class="balik"><a href="tugas2.html">Tugas 2: Form Input Data</a></p>
+    </div>
+
+    <script>
+        function hitung(operator) {
+            let val1 = parseFloat(document.getElementById('bil1').value);
+            let val2 = parseFloat(document.getElementById('bil2').value);
+            let hasil = 0;
+
+            if (isNaN(val1) || isNaN(val2)) {
+                alert("Silakan isi kedua input bilangan terlebih dahulu!");
+                return;
+            }
+
+            if (operator === '+') {
+                hasil = val1 + val2;
+            } else if (operator === '-') {
+                hasil = val1 - val2;
+            } else if (operator === '*') {
+                hasil = val1 * val2;
+            } else if (operator === '/') {
+                if (val2 === 0) {
+                    alert("Bilangan kedua tidak boleh 0 untuk pembagian!");
+                    return;
+                }
+                hasil = val1 / val2;
+            }
+
+            document.getElementById('output').value = hasil;
+        }
+    </script>
+
 </body>
 </html>
+
+
+
+
