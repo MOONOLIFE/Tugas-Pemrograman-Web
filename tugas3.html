@@ -4,96 +4,167 @@
     <meta charset="UTF-8">
     <title>Tugas Membuat Kalkulator Sederhana</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #efebe9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4e342e;
+            margin-bottom: 20px;
+        }
        
         .kotak-tugas {
-            width: 320px;
-            border: 1px solid #000000;
-            padding: 15px;
-            margin: 20px auto;
+            width: 360px;
+            border: 1px solid #a1887f;
+            background-color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
         }
+
         .tabel-form {
             width: 100%;
+            border-collapse: collapse;
         }
+
         .tabel-form td {
-            padding: 5px 0;
+            padding: 8px 0;
+            color: #4e342e;
+            font-weight: bold;
+            vertical-align: middle;
         }
+
+        .tabel-form td:first-child {
+            width: 40%;
+        }
+
+        .tabel-form td:last-child {
+            width: 60%;
+        }
+
         .input-lebar {
-            width: 95%;
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #bcaaa4;
+            box-sizing: border-box;
         }
-        h1 {
-           font-family: Arial, sans-serif;
-           text-align: center;
-            
+
+        .btn-container {
+            display: flex;
+            gap: 5px;
         }
-        .balik {
+
+        button {
+            flex: 1;
+            background-color: #8d6e63;
+            color: white;
+            border: 1px solid #5d4037;
+            padding: 6px 0;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #70554c;
+        }
+
+        .container-balik {
+            margin-top: 20px;
             text-align: center;
         }
-        
-      
+
+        .balik {
+            margin: 8px 0;
+        }
+
+        .balik a {
+            color: #6d4c41;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .balik a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-  <h1>TUGAS 3 PEMROGRAMAN WEB</h1>
+
+    <h1>TUGAS 3 PEMROGRAMAN WEB</h1>
+    
     <div class="kotak-tugas">
-   
-    <table class="tabel-form">
-        <tr>
-            <td>Input Bilangan 1</td>
-            <td><input type="number" id="bil1" class="input-lebar"></td>
-        </tr>
-        <tr>
-            <td>Input Bilangan 2</td>
-            <td><input type="number" id="bil2" class="input-lebar"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button onclick="hitung('+')">+</button>
-                <button onclick="hitung('-')">-</button>
-                <button onclick="hitung('*')">x</button>
-                <button onclick="hitung('/')">/</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Output</td>
-            <td><input type="text" id="output" class="input-lebar" readonly></td>
-        </tr>
-    </table>
-</div>
+        <table class="tabel-form">
+            <tr>
+                <td>Input Bilangan 1</td>
+                <td><input type="number" id="bil1" class="input-lebar"></td>
+            </tr>
+            <tr>
+                <td>Input Bilangan 2</td>
+                <td><input type="number" id="bil2" class="input-lebar"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="btn-container">
+                        <button onclick="hitung('+')">+</button>
+                        <button onclick="hitung('-')">-</button>
+                        <button onclick="hitung('*')">x</button>
+                        <button onclick="hitung('/')">/</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Output</td>
+                <td><input type="text" id="output" class="input-lebar" readonly></td>
+            </tr>
+        </table>
+    </div>
 
-<script>
-    function hitung(operator) {
-        let val1 = parseFloat(document.getElementById('bil1').value);
-        let val2 = parseFloat(document.getElementById('bil2').value);
-        let hasil = 0;
+    <div class="container-balik">
+        <p class="balik"><a href="index.html">Kembali ke Halaman Utama</a></p>
+        <p class="balik"><a href="tugas1.html">Tugas 1: Membuat Tabel</a></p>
+        <p class="balik"><a href="tugas2.html">Tugas 2: Form Input Data</a></p>
+    </div>
 
-        if (isNaN(val1) || isNaN(val2)) {
-            alert("Silakan isi kedua input bilangan terlebih dahulu!");
-            return;
-        }
+    <script>
+        function hitung(operator) {
+            let val1 = parseFloat(document.getElementById('bil1').value);
+            let val2 = parseFloat(document.getElementById('bil2').value);
+            let hasil = 0;
 
-        if (operator === '+') {
-            hasil = val1 + val2;
-        } else if (operator === '-') {
-            hasil = val1 - val2;
-        } else if (operator === '*') {
-            hasil = val1 * val2;
-        } else if (operator === '/') {
-            if (val2 === 0) {
-                alert("Bilangan kedua tidak boleh 0 untuk pembagian!");
+            if (isNaN(val1) || isNaN(val2)) {
+                alert("Silakan isi kedua input bilangan terlebih dahulu!");
                 return;
             }
-            hasil = val1 / val2;
-        }
 
-        document.getElementById('output').value = hasil;
-    }
-        
-</script>
-  <p class="balik"><a href="index.html">Kembali ke  Halaman Utama</data></a></p>
-   <p class="balik">
-        <a href="tugas2.html">Tugas 2: Kalkulator JavaScript</data></a>
-    </p>
+            if (operator === '+') {
+                hasil = val1 + val2;
+            } else if (operator === '-') {
+                hasil = val1 - val2;
+            } else if (operator === '*') {
+                hasil = val1 * val2;
+            } else if (operator === '/') {
+                if (val2 === 0) {
+                    alert("Bilangan kedua tidak boleh 0 untuk pembagian!");
+                    return;
+                }
+                hasil = val1 / val2;
+            }
+
+            document.getElementById('output').value = hasil;
+        }
+    </script>
+
 </body>
 </html>
+
+
+
 
